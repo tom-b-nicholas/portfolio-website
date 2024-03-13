@@ -1,0 +1,38 @@
+.title {
+    text-align: center;
+    margin: 0 0 1rem 0;
+}
+
+.intro {
+    color: var(--color-black);
+}
+
+.intro p {
+    width: 33rem;
+    margin: auto;
+}
+
+/* .intro__portrait {
+    margin: auto;
+    width: 20rem;
+}
+
+.intro__portrait__img {
+    border-radius: 10rem;
+    max-width: 20rem;
+    height: 10rem;
+    margin: auto;
+} */
+
+.projects {
+    /* background-color: var(--color-gray-light); */
+}
+
+.resume {
+    /* background-color: var(--color-grey-musk); */
+    height: 22rem;
+}
+
+.resume > div {
+    margin: auto;
+}

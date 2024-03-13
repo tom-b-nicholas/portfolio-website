@@ -1,0 +1,52 @@
+.project-contents {
+    width: 33rem;
+}
+
+.project-contents > h1 {
+    text-align: center;
+}
+
+.project-contents > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.project-contents > ul > li {
+    padding: 0.5rem;
+}
+
+#to-top {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 100px;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    bottom: 6rem;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow-up {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+img {
+    width: 100%;
+}
+
+#anchor {
+    position: absolute;
+    top: 0;
+}
