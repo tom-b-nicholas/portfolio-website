@@ -9,10 +9,9 @@ import {
 } from "@remix-run/react";
 import { useState, MouseEvent } from "react";
 
-/// COMPONENTS ///
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-/// CSS ///
+
 import type { LinksFunction } from "@remix-run/node";
 import styles from "~/styles/shared.css";
 export const links: LinksFunction = () => {
@@ -23,12 +22,11 @@ export const links: LinksFunction = () => {
     },
   ];
 };
-//////
 
 export const meta: MetaFunction = () => [{
   charset: "utf-8",
   title: "New Remix App",
-  viewport: "width=device-width,initial-scale=1",
+  viewport: "width=device-width,initial-scale=1"
 }];
 
 export default function App() {
@@ -49,6 +47,11 @@ export default function App() {
   return (
     <html lang="en">
       <head>
+      <meta charSet="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        />
         <Meta />
         <Links />
       </head>

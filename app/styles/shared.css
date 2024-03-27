@@ -25,7 +25,7 @@
     --color-navbar: var(--color-silver);
 
     --font-body: 'Open Sans', sans-serif;
-    --font-size: 1.3rem;
+    --font-size: 1rem;
     --max-text-width: 38rem;
     --opacity-time: 0.4s
 }
@@ -51,7 +51,9 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    width: 100%;
     font-family: var(--font-body);
+    position: absolute;
 }
 
 h1 {
@@ -62,6 +64,10 @@ h1 {
 p {
     font-size: var(--font-size);
     line-height: 2rem;
+}
+
+a {
+    -webkit-tap-highlight-color: transparent;
 }
 
 .header {
@@ -146,7 +152,7 @@ p {
 }
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
-@media screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {
 
     .main, .footer {
         position: relative;
@@ -157,6 +163,7 @@ p {
         position: absolute;
         display: flex;
         flex-direction: column;
+        padding: 0.1rem;
         width: 100%;
         z-index: 1;
         max-height: 7rem;
@@ -195,6 +202,10 @@ p {
         height: 5rem;
     }
 
+    .hamburger:focus, #header__logo, .header a {
+        -webkit-tap-highlight-color: transparent;
+      }
+
     .hamburger > * {
         display: block;
         width: 2rem;
@@ -225,9 +236,6 @@ p {
     .hamburger-active > .line-third {
         opacity: 0;
     }
-}
-
-@media screen and (max-width: 600px) {
 
     .header.responsive {
         display: flex;
