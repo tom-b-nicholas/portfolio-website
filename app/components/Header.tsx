@@ -1,56 +1,54 @@
-import { useState } from "react"
 import { NavLink } from "@remix-run/react";
-import Hamburger from "./Hamburger";
-export default function Header() {
 
-    const [isActive, setIsActive] = useState<boolean>(false);
+type HeaderProps = {
+    handleClick: React.Dispatch<React.SetStateAction<boolean>>;
+    isActive: boolean;
+};
 
-    const handleClick = () => {
-        setIsActive(isActive => !isActive);
-    }
+export default function Header({ handleClick, isActive }: HeaderProps) {
 
     return (
-        <div className = { !isActive ? 'header' : 'header responsive'}>
-            <div className = { !isActive ? 'header__links' : 'header__links responsive'}>
-                <NavLink
-                    id = 'header__logo'
-                    to="/"
-                    className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "active" : ""
-                    }
-                    >
-                    <span
-                        onClick={ () => isActive && handleClick() }
-                    >TN
-                    </span>
-                </NavLink>
-                <NavLink
-                    to="/about"
-                    className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "active" : ""
-                    }
-                    onClick={ () => isActive && handleClick() }
-                    >
-                    About
-                </NavLink>
-                <NavLink
-                    to="/contact"
-                    className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "active" : ""
-                    }
-                    onClick={ () => isActive && handleClick() }
-                    >
-                    Contact
-                </NavLink>
-            </div>
-                
+        <div id = 'header' className = { !isActive ? 'header' : 'header responsive'}>
+            <NavLink
+                id = 'header__logo'
+                to="/"
+                className={ ({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "active" : ""
+                }
+                >
+                <span
+                    onClick={ () => { if (isActive) handleClick(isActive) } }
+                >TN
+                </span>
+            </NavLink>
+            <NavLink
+                to="/about"
+                className={ ({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "active" : ""
+                }
+                onClick={ () => { if (isActive) handleClick(isActive) } }
+                >
+                About
+            </NavLink>
+            <NavLink
+                to="/contact"
+                className={ ({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "active" : ""
+                }
+                onClick={ () => { if (isActive) handleClick(isActive) } }
+                >
+                Contact
+            </NavLink>
+            <div className = 'hamburger-container'>
                 <button 
                     className = { isActive ? 'hamburger hamburger-active' : 'hamburger' }
-                    onClick =  { handleClick }>
+                    onClick =  { () => handleClick(isActive) }>
                         <span className = 'line-first'></span>
                         <span className = 'line-second'></span>
                         <span className = 'line-third'></span>
                 </button>
+            </div>
+
         </div>
     );
 }

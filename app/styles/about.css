@@ -1,0 +1,30 @@
+.about {
+    background-color: var(--color-cream);
+    animation: opaticy var(--opacity-time) linear;
+}
+
+.portrait-container {
+    flex: 0 1 25%;
+    display: flex;
+}
+
+.portrait-container img {
+    height: 20rem;
+    margin: auto;
+}
+
+.about__text-container {
+    flex: 0 1 auto;
+    padding: 2rem;
+    max-width: var(--max-text-width);
+}
+
+.about__text-container p {
+    margin: 0;
+}
+
+.part-b {
+    padding: 2rem;
+    margin: auto;
+    max-width: var(--max-text-width);
+}

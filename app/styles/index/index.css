@@ -1,38 +1,58 @@
-.title {
-    text-align: center;
-    margin: 0 0 1rem 0;
-}
-
-.intro {
-    color: var(--color-black);
+.index {
+    animation: opaticy var(--opacity-time) linear;
 }
 
 .intro p {
-    width: 33rem;
+    padding: 2rem;
     margin: auto;
+    max-width: var(--max-text-width);
 }
 
-/* .intro__portrait {
-    margin: auto;
-    width: 20rem;
+.intro__icons {
+    max-width: 28rem;
+    padding: 2rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    max-width: var(--max-text-width);
+    border-radius: 0.5rem;
+    background-color: var(--color-gray-dark);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.intro__portrait__img {
-    border-radius: 10rem;
-    max-width: 20rem;
-    height: 10rem;
-    margin: auto;
-} */
+.intro__icons h1 {
+    color: var(--color-white);
+}
 
-.projects {
-    /* background-color: var(--color-gray-light); */
+.intro__icons > div > img {
+    margin: 1rem;
+}
+
+.intro__icons span {
+    display: block;
+    color: var(--color-white);
+
+}
+
+.intro__icons a {
+    color: var(--color-white);
+}
+
+.section.projects {
+    background-color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 0.5rem;
+    margin-top: 4rem;
+    padding: 2rem;
 }
 
 .resume {
-    /* background-color: var(--color-grey-musk); */
     height: 22rem;
 }
 
 .resume > div {
     margin: auto;
+}
+
+.resume > div:hover {
+    cursor: pointer;
 }

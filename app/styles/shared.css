@@ -1,10 +1,33 @@
+/* 
+---Table of Contents---
+
+-Colors
+-Fonts
+-HTML Tags
+-Custom containers
+-Navigation
+
+-----------------------
+*/
+
 :root {
-    --color-cream: #F1ECE6ff;
+    --color-cream: #989591;
     --color-gray-light: #E2E0D5ff;
     --color-gray-dark: #4D4B4C;
-    --color-white: #E8F1FFff;
-    --color-brown-dark: #38383Eff;
+    --color-white: #fdfffc;
+    --color-brown-dark: #191009;
+    --color-brown-light: #87694E;
+    --color-silver: #E6E6EA;
+
+    --color-correct-green: #1ce24e;
+    --color-proceed-blue: #0A46E4;
+
+    --color-navbar: var(--color-silver);
+
     --font-body: 'Open Sans', sans-serif;
+    --font-size: 1.3rem;
+    --max-text-width: 38rem;
+    --opacity-time: 0.4s
 }
   
 html {
@@ -20,7 +43,7 @@ box-sizing: inherit;
 html, body {
     padding: 0;
     margin: 0;
-    background-color: var(--color-white);
+    background-color: #F4F4F8;
     color: var(--color-brown-dark);
 }
 
@@ -36,23 +59,44 @@ h1 {
     padding: 0;
 }
 
-.header {
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    background-color: var(--color-gray-light);
-    color: var(--color-gray-dark);
-    overflow: hidden;
+p {
+    font-size: var(--font-size);
+    line-height: 2rem;
 }
+
+.header {
+    background-color: var(--color-navbar);
+    overflow: hidden;
+    border-bottom: solid 1px black;
+}
+
+.main {
+    margin: 0 auto;
+    max-width: 70rem;
+    position: relative;
+    top: 5rem;
+}
+
+@keyframes opaticy {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+} 
 
 .footer {
     height: 5rem;
     margin-top: auto;
-    background-color: var(--color-gray-dark);
+    background-color: var(--color-navbar);
+    position: relative;
+    top: 5rem;
 }
 
 .section {
-    margin: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
@@ -78,61 +122,92 @@ h1 {
 
 /* Navigtion */
 
-.header__links a {
+.header a {
     text-decoration: none;
     font-size: 1rem;
-    color: var(--color-gray-dark);
+    font-weight: bold;
+    color: var(--color-brown-dark);
     float: left;
     display: block;
     text-align: center;
-    padding: 20px 22px;
+    line-height: 5rem;
+    padding: 1rem 2rem;
 }
 
 #header__logo span {
-    height: 3rem;
-    border: 0.3rem solid var(--color-gray-dark);
-    padding: 0.3rem;
+    border: 0.3rem solid var(--color-brown-dark);
     border-radius: 0.3rem;
     cursor: pointer;
+    padding: 0.3rem;
 }
 
-.hamburger {
+.hamburger-container {
     display: none;
 }
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 600px) {
-    .header__links a:not(:first-child) {
-        visibility: hidden;
-        opacity: 0;
-        transition: visibility 0s, opacity 0.5s linear;
+
+    .main, .footer {
+        position: relative;
+        top: 7rem;
     }
 
-    .hamburger {
-        height: 3rem;
+    .header {
+        position: absolute;
         display: flex;
+        flex-direction: column;
+        width: 100%;
+        z-index: 1;
+        max-height: 7rem;
+        transition: max-height 500ms;
+    }
+
+    #header__logo {
+        margin-right: auto;
+    }
+
+    .header a:not(:first-child) {
+        flex: 0 0 auto;
+        text-align: left;
+    }
+
+    .hamburger-container {
+        position: absolute;
+        top:0;
+        right: 0;
         float: right;
+        display: block;
+        padding: 1rem 2rem;
+        z-index: 2;
+    }
+    
+    .hamburger {
+        position: relative;
+        display: flex;
         cursor: pointer;
-        display: blo;
         flex-direction: column;
         justify-content: center;
         box-shadow: none;
-        background-color: var(--color-gray-light);
+        background-color: var(--color-navbar);
         border: none;
         outline: none;
-        margin-right: 0.5rem;
-        margin-left: auto;
+        height: 5rem;
     }
-    
+
     .hamburger > * {
         display: block;
         width: 2rem;
         height: 0.3rem;
-        margin: 0.2rem;
-        background-color: var(--color-gray-dark);
+        background-color: var(--color-brown-dark);
         transition: transform 300ms;
     }
-    
+
+    .hamburger .line-second{
+        margin-top: 0.2rem;
+        margin-bottom: 0.2rem;
+    }
+
     .hamburger-active > .line-first {
         transform: rotate(45deg);
         position: absolute;
@@ -148,32 +223,37 @@ h1 {
     }
     
     .hamburger-active > .line-third {
-        opacity: 0.0;
+        opacity: 0;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .header__links.responsive {
+
+    .header.responsive {
+        display: flex;
+        flex-direction: column;
+        max-height: 30rem;
+        transition: max-height 500ms;
         position: fixed;
-        top: 10rem;
-        width:  100%;
-        display: block;
-        height: auto;
-        transition: height 0.5s, opacity 0.5s linear;
-        z-index: 1;
-        overflow-y: auto;
+        top: 0;
     }
 
     .header.responsive a {
-      float: none;
-      display: block;
-      text-align: left;
-      visibility: visible;
-      opacity: 1;
+        flex: 0 0 auto;
+        text-align: left;
+    }
+
+    .header.responsive a:not(:first-child):hover {
+        background-color: var(--color-white);
+    }
+
+    .header.responsive .hamburger-container {
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 
     .header.responsive a:first-child {
         cursor: default;
     }
 }
-

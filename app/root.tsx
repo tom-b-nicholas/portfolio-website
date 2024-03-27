@@ -5,15 +5,13 @@ import {
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration,
+  ScrollRestoration
 } from "@remix-run/react";
-
-/////////////////////
+import { useState, MouseEvent } from "react";
 
 /// COMPONENTS ///
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-
 /// CSS ///
 import type { LinksFunction } from "@remix-run/node";
 import styles from "~/styles/shared.css";
@@ -25,8 +23,7 @@ export const links: LinksFunction = () => {
     },
   ];
 };
-
-/////////////////////
+//////
 
 export const meta: MetaFunction = () => [{
   charset: "utf-8",
@@ -36,15 +33,30 @@ export const meta: MetaFunction = () => [{
 
 export default function App() {
 
+  const [isActive, setIsActive] = useState<boolean>(false);
+  
+  const handleClick = () => {
+    console.log('triggered handleClick');
+    setIsActive(isActive => !isActive);
+  }
+
+  const handleClickOutside = (event: MouseEvent) => {
+    console.log('triggered clickoutside');
+    console.log(event.currentTarget);
+    isActive && setIsActive(false);
+}
+
   return (
     <html lang="en">
       <head>
         <Meta />
         <Links />
       </head>
-      <body>
-        <Header />
-        <Outlet />
+      <body onClick = { (event: MouseEvent) => handleClickOutside(event) }>
+        <Header handleClick = { handleClick } isActive = { isActive }/>
+        <div className = 'main'>
+          <Outlet />
+        </div>
         <Footer />
         <ScrollRestoration />
         <Scripts />

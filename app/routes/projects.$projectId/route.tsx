@@ -4,7 +4,6 @@ import { useEffect, useRef } from 'react';
 import type { LoaderFunctionArgs } from "@remix-run/node";
 
 /// CSS
-
 import type { LinksFunction } from "@remix-run/node";
 import stylesProjectURL from "~/styles/project.css";
 
@@ -45,7 +44,7 @@ export default function Project() {
         return string.replace(/[^\w]/gi,"");
     }
 
-    const  scrollToTop = (e: any) => {
+    const  scrollToTop = () => {
         listRef.current?.querySelector('#anchor')?.scrollIntoView({
         behavior: 'smooth',
         block: 'start',
@@ -67,7 +66,7 @@ export default function Project() {
     const { blogMarkdown } = useLoaderData<typeof loader>();
     
     return (
-        <div className = 'container-col' ref = { listRef }>
+        <div className = 'container-col project' ref = { listRef }>
             <div id = 'anchor'></div>
             <div className = 'project-contents section'>
                 <ReactMarkdown 
