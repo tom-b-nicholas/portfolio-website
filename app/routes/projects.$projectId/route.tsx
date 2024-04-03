@@ -81,7 +81,7 @@ export default function Project() {
                     { blogMarkdown ?? blogMarkdown }
                 </ReactMarkdown>
             </div>
-            <div id = 'to-top' className = 'hidden' onClick = {scrollToTop}>
+            <div id = 'to-top' className = 'hidden' onClick = { scrollToTop }>
                 <i className = 'arrow-up'/>
             </div>
         </div>
