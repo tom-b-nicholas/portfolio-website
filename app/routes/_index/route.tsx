@@ -93,11 +93,11 @@ export default function Index() {
     },
     {
       icon: jsIcon,
-      name: "Javascript"
+      name: "JavaScript"
     },
     {
       icon: typeIcon,
-      name: "Typescript"
+      name: "TypeScript"
     },
     {
       icon: reactIcon,
