@@ -11,7 +11,7 @@
 */
 
 :root {
-    --color-cream: #989591;
+    --color-cream: #d4d4d7;
     --color-gray-light: #E2E0D5ff;
     --color-gray-dark: #4D4B4C;
     --color-white: #fdfffc;
@@ -54,9 +54,10 @@ body {
     width: 100%;
     font-family: var(--font-body);
     position: absolute;
+    align-items: center;
 }
 
-h1 {
+h1, h2, h3 {
     margin: 0;
     padding: 0;
 }
@@ -71,13 +72,14 @@ a {
 }
 
 .header {
+    width: 100%;
     background-color: var(--color-navbar);
     overflow: hidden;
     border-bottom: solid 1px black;
 }
 
 .main {
-    margin: 0 auto;
+    /* margin: 0 auto; */
     max-width: 70rem;
     position: relative;
     top: 5rem;
@@ -93,11 +95,12 @@ a {
 } 
 
 .footer {
-    height: 5rem;
+    width: 100%;
     margin-top: auto;
     background-color: var(--color-navbar);
     position: relative;
     top: 5rem;
+    padding: 1rem;
 }
 
 .section {
@@ -109,7 +112,7 @@ a {
 
 .title {
     text-align: center;
-    margin: 0 0 1rem 0;
+    margin-bottom: 1rem;
 }
 
 .container-wrap {
@@ -246,9 +249,17 @@ a {
         top: 0;
     }
 
-    .header.responsive a {
+    .header a:not(:first-child) {
         flex: 0 0 auto;
         text-align: left;
+        background-color: var(--color-cream);
+        padding: 1rem;
+        margin: 0.2rem;
+    }
+
+    .header a:not(:first-child) .active,
+    .header a:not(:first-child) .pending {
+        background-color: var(--color-cream);
     }
 
     .header.responsive a:not(:first-child):hover {

@@ -1,12 +1,7 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-
-/// CSS
 import type { LinksFunction } from "@remix-run/node";
 import stylesContactURL from "~/styles/contact.css"
-import githubIcon from '~/styles/images/github.svg'
-import linkdinIcon from '~/styles/images/linkedin.svg'
-
 
 export const links: LinksFunction = () => {
   return [
@@ -16,7 +11,6 @@ export const links: LinksFunction = () => {
     }
   ];
 };
-///
 
 export default function Contact() {
 

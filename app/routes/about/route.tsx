@@ -1,9 +1,4 @@
-/// IMAGES
-
 import portrait from "~/styles/images/portrait.jpg"
-
-/// CSS
-
 import type { LinksFunction } from "@remix-run/node";
 import stylesAboutURL from "~/styles/about.css";
 

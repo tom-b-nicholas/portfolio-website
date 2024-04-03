@@ -24,7 +24,7 @@ import { useState } from "react";
 import LinkTile from "./LinkTile";
 import Modal from "./Modal";
 
-/// IMAGES
+/// STYLES & IMAGES
 
 import bookIcon from "~/styles/images/read-book-icon.svg";
 import stockIcon from "~/styles/images/stock-icon.svg";
@@ -39,9 +39,6 @@ import pythonIcon from "~/styles/images/icons8-python.svg";
 import expIcon from "~/styles/images/icons8-express-js.svg";
 import remixIcon from "~/styles/images/remix-logo-icon.svg";
 import CV from "~/styles/images/cv.jpg";
-
-/// CSS
-
 import type { LinksFunction } from "@remix-run/node";
 import stylesIndexURL from "~/styles/index/index.css";
 import stylesLinkTileURL from "~/styles/index/LinkTile.css";
@@ -58,7 +55,6 @@ export const links: LinksFunction = () => {
     },
   ];
 };
-///
 
 export default function Index() {
 
@@ -71,32 +67,59 @@ export default function Index() {
   const tileDataArray = [
     { 
       title: "Daily Learnings",
-      param: 'project1',
+      param: "project1",
       image: bookIcon
     },
     { 
       title: "Portfolio Website",
-      param: 'project2',
+      param: "project2",
       image: remixIcon
     },
     { 
       title: "Precision Stocks",
-      param: 'project3',
+      param: "project3",
       image: stockIcon
     }
   ];
 
-  const IconArray = [
-    htmlIcon,
-    css3Icon,
-    jsIcon,
-    typeIcon,
-    reactIcon,
-    expIcon,
-    postgIcon,
-    pythonIcon,
-    rIcon
-  ]
+  const iconDataArray = [
+    {
+      icon: htmlIcon,
+      name: "HTML"
+    },
+    {
+      icon: css3Icon,
+      name: "CSS"
+    },
+    {
+      icon: jsIcon,
+      name: "Javascript"
+    },
+    {
+      icon: typeIcon,
+      name: "Typescript"
+    },
+    {
+      icon: reactIcon,
+      name: "React"
+    },
+    {
+      icon: expIcon,
+      name: "Express"
+    },
+    {
+      icon: postgIcon,
+      name: "Postgresql"
+    },
+    {
+      icon: pythonIcon,
+      name: "Python"
+    },
+    {
+      icon: rIcon,
+      name: "R"
+    }
+  ];
 
   return (
     <div className = 'container-col index'>
@@ -108,51 +131,59 @@ export default function Index() {
           I'm a motivated Software Engineer with a background in biostatistics and public health research. Combining strong analytical skills, programming knowledge and a commitment to continuous learning.
         </p>
       </div>
-      <div className = 'section intro__icons'>
-          <h1 className = 'title'>
-            Tech Stack
-          </h1>
-          <div className = 'container-wrap'>
-            { IconArray.map((icon, index) => <img key = { index } src = { icon } alt="" />) }
-          </div>
-          <span>Icons by <a target="_blank" href="https://icons8.com">Icons8</a></span>
-        </div> 
       <div className = 'section projects'>
         <h1 className = 'title'>
           Projects
         </h1>
         <div className = 'container-wrap projects__container'>
-          { tileDataArray.map((linkTileProps, index) => <LinkTile key = { index } { ...linkTileProps }/> )}
+          { tileDataArray.map((linkTileProps, index) => <LinkTile key = { index } { ...linkTileProps }/> )
+          }
         </div>
       </div>
-      <div className = 'section resume'>
+      <div className = 'section'>
+        <h1 className = 'title'>
+          Tech Stack
+        </h1>
+        <div className = 'icons container-wrap'>
+          { iconDataArray.map((iconObj, index) => 
+            <div key = { index } className = 'container-col'>
+              <p>{ iconObj.name }</p>
+              <img src = { iconObj.icon } alt="" />
+            </div>) 
+          }
+        </div>
+      </div>
+      <div className = 'section'>
         <h1 className = 'title'>
           Resume
         </h1>
-        {
-          !open && 
-          <div
-          onClick={ handleOpen }
-          style={{ width: "10rem", height: "20rem", marginTop: "2rem"}}
-          >
-            <img 
-            src={CV}
-            style={{width: "100%"}}
-            />
-          </div>
-        }
-        {
-          <Modal isOpen = { open } setOpen = { setOpen }>
+        <div className = 'resume container-col'>
+          {
+            !open && 
             <div
-            style={{ maxWidth: "90vw"}}
+            onClick={ handleOpen }
+            className = 'resume__image-container'
             >
               <img 
               src={CV}
-              style={{width: "100%", maxHeight: "90vh"}}
+              style={{width: "100%"}}
               />
             </div>
-          </Modal>
-        }
+          }
+          {
+            <Modal isOpen = { open } setOpen = { setOpen }>
+              <div
+              style={{ maxWidth: "90vw"}}
+              >
+                <img 
+                src={CV}
+                style={{width: "100%", maxHeight: "90vh"}}
+                />
+              </div>
+            </Modal>
+          }
+          <a href="/TN_Resume_2023.pdf" target="_blank">View PDF</a>
+        </div>
       </div>
     </div>
   );

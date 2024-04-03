@@ -1,5 +1,6 @@
 .index {
     animation: opaticy var(--opacity-time) linear;
+    width: 100%;
 }
 
 .intro p {
@@ -8,48 +9,75 @@
     max-width: var(--max-text-width);
 }
 
-.intro__icons {
-    max-width: 28rem;
+.icons {
     padding: 2rem;
+    border-radius: 0.5rem;
+    background-color: var(--color-silver);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    width: 90vw;
+    max-width: var(--max-text-width);
+}
+
+.icons div {
+    /* border-radius: 0.5rem;
+    background-color: var(--color-gray-dark);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); */
     margin-left: 1rem;
     margin-right: 1rem;
-    max-width: var(--max-text-width);
-    border-radius: 0.5rem;
-    background-color: var(--color-gray-dark);
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.intro__icons h1 {
-    color: var(--color-white);
-}
-
-.intro__icons > div > img {
-    margin: 1rem;
-}
-
-.intro__icons span {
-    display: block;
-    color: var(--color-white);
-}
-
-.intro__icons a {
-    color: var(--color-white);
+.icons p {
+    color: var(--color-brown-dark);;
+    margin-bottom: 0;
 }
 
 .section.projects {
-    background-color: white;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    /* background-color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); */
     border-radius: 0.5rem;
-    margin-top: 4rem;
-    padding: 2rem;
+    /* margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 2rem; */
 }
 
 .resume {
-    height: 22rem;
+    /* background-color: var(--color-gray-dark);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 0.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem; */
 }
 
-.resume > div {
-    margin: auto;
+.resume__image-container {
+    max-width: 10rem;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.resume__image-container img:hover {
+    opacity: 0.5;
+}
+
+.resume a {
+    text-decoration: none;
+    padding: 1rem;
+    background-color: var(--color-gray-dark);
+    color: white;
+    border-radius: 0.2rem;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    margin: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+
+    .resume a:hover {
+        background-color: var(--color-proceed-blue);
+        color: white;
+    }
+
+    .resume a:active {
+        background-color: var(--color-correct-green);
+        color: white;
+    }
 }
 
 .resume > div:hover {

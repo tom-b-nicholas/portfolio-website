@@ -25,7 +25,7 @@ export const links: LinksFunction = () => {
 
 export const meta: MetaFunction = () => [{
   charset: "utf-8",
-  title: "New Remix App",
+  title: "Thomas B. Nicholas",
   viewport: "width=device-width,initial-scale=1"
 }];
 
@@ -34,13 +34,10 @@ export default function App() {
   const [isActive, setIsActive] = useState<boolean>(false);
   
   const handleClick = () => {
-    console.log('triggered handleClick');
     setIsActive(isActive => !isActive);
   }
 
   const handleClickOutside = (event: MouseEvent) => {
-    console.log('triggered clickoutside');
-    console.log(event.currentTarget);
     isActive && setIsActive(false);
 }
 

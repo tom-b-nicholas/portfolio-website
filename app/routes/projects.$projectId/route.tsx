@@ -2,8 +2,6 @@ import { useLoaderData } from "@remix-run/react";
 import ReactMarkdown from 'react-markdown';
 import { useEffect, useRef } from 'react';
 import type { LoaderFunctionArgs } from "@remix-run/node";
-
-/// CSS
 import type { LinksFunction } from "@remix-run/node";
 import stylesProjectURL from "~/styles/project.css";
 
