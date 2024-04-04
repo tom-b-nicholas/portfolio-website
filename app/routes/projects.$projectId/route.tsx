@@ -50,6 +50,18 @@ export default function Project() {
         });
     }
 
+    const  scrollToSection = (event : React.MouseEvent) => {
+        const target = event.target as HTMLUListElement;
+        const nodes = listRef.current?.querySelectorAll('h3');
+        if(nodes) {
+            [...nodes].filter(node => node.textContent === target.id)[0].scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'center'
+            });
+        }
+    }
+
     const handleToggleVisible = () => {
         listRef.current?.querySelector('#to-top')?.classList.toggle("hidden", window.scrollY < 100);
     }
@@ -64,19 +76,21 @@ export default function Project() {
     const { blogMarkdown } = useLoaderData<typeof loader>();
     
     return (
-        <div className = 'container-col project' ref = { listRef }>
+        <div className = 'project' ref = { listRef }>
             <div id = 'anchor'></div>
             <div className = 'project-contents section'>
                 <ReactMarkdown 
-                // components={{
-                // li(props) {
-                //     const {node, ...rest} = props
-                //     return <li onClick = {scrollToSection} { ...rest } />
-                // },
-                // h3(props) {
-                //     const {node, ...rest} = props;
-                //     return <h3 id = {removeSpecialChars(node.children[0].value)} { ...rest } />
-                // }}}
+                components={{
+                    ul (props) {
+                        const {node, ...rest} = props
+                        return <ul className = 'dash' { ...rest } />
+                    },
+                    li(props) {
+                        const {node, ...rest} = props
+                        const id = (node?.children[0] as HTMLInputElement | null)?.value
+                        return <li id = { id } onClick = { scrollToSection } { ...rest } />
+                    }
+                }}
                 >
                     { blogMarkdown ?? blogMarkdown }
                 </ReactMarkdown>
