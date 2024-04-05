@@ -81,7 +81,7 @@ export default function Contact() {
                 <ul className = 'contact__links__list-wrap'>
                     <li>
                         <a
-                            href="https://github.com"
+                            href="https://github.com/tom-b-nicholas"
                             target='_blank'
                             rel="noopener"
                             aria-label='Github'
