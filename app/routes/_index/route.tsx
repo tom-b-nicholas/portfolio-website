@@ -168,6 +168,7 @@ export default function Index() {
               src={CV}
               style={{width: "100%"}}
               />
+              <span className="tooltiptext">Enlarge image</span>
             </div>
           }
           {
@@ -177,12 +178,12 @@ export default function Index() {
               >
                 <img 
                 src={CV}
-                style={{width: "100%", maxHeight: "90vh"}}
+                style={{ width: "100%", maxHeight: "90vh" }}
                 />
               </div>
             </Modal>
           }
-          <a href="/TN_Resume_2023.pdf" target="_blank">View PDF</a>
+          <a href = "/TN_Resume_2023.pdf" target = "_blank">View PDF</a>
         </div>
       </div>
     </div>

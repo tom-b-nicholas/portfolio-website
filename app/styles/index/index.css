@@ -50,11 +50,10 @@
 
 .resume__image-container {
     max-width: 10rem;
+    height: 15rem;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-.resume__image-container img:hover {
-    opacity: 0.5;
+    position: relative;
+    display: inline-block;
 }
 
 .resume a {
@@ -67,7 +66,49 @@
     margin: 1rem;
 }
 
+.resume__image-container .tooltiptext {
+    display: none;
+}
+
 @media only screen and (min-width: 600px) {
+
+    .resume__image-container img:hover {
+        opacity: 0.5;
+    }
+
+    .resume__image-container .tooltiptext {
+        display:inline-block;
+        visibility: hidden;
+        width: 120px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        left: 105%;
+    }
+
+    .resume__image-container .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%; /* To the left of the tooltip */
+        margin-top: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: transparent black transparent transparent;
+    }
+    
+    .resume__image-container:hover .tooltiptext {
+        visibility: visible;
+    }
+
+    .resume > div:hover {
+        cursor: pointer;
+    }
 
     .resume a:hover {
         background-color: var(--color-proceed-blue);
@@ -78,8 +119,4 @@
         background-color: var(--color-correct-green);
         color: white;
     }
-}
-
-.resume > div:hover {
-    cursor: pointer;
 }
